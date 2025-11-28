@@ -1,0 +1,12 @@
+{
+  "name": "inteliautomake-landing",
+  "version": "1.0.0",
+  "description": "Landing page profesional para Inteliautomake - IA Agéntica",
+  "scripts": {
+    "start": "python3 -m http.server 3000 --directory public",
+    "dev": "python3 -m http.server 3000 --directory public"
+  },
+  "keywords": ["inteliautomake", "ia-agentica", "landing-page"],
+  "author": "Inteliautomake",
+  "license": "MIT"
+}
