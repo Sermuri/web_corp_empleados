@@ -190,15 +190,25 @@ Landing page one-pager diseñada con la estética "Tech Authority meets Accessib
 
 ## 🚀 Cómo Visualizar
 
-### Método 1: Servidor Local (Python)
+### Método 1: Preview / App Preview (Recomendado)
+La landing page está configurada con supervisor y se ejecuta automáticamente en el puerto 3000:
+- **Preview**: Click en el botón "Preview" en la interfaz
+- **URL directa**: http://localhost:3000/
+
+### Método 2: Servidor Local
+El servicio frontend ya está corriendo automáticamente vía supervisor:
 ```bash
-cd /app
-python3 -m http.server 8080
-# Abrir en navegador: http://localhost:8080/index.html
+# Verificar estado
+supervisorctl status frontend
+
+# Reiniciar si es necesario
+supervisorctl restart frontend
 ```
 
-### Método 2: Abrir Directamente
-Simplemente abre el archivo `index.html` en cualquier navegador moderno.
+### Ubicación de Archivos:
+- **Archivo principal**: `/app/frontend/public/index.html`
+- **Assets (logos)**: `/app/frontend/public/*.png`, `*.jpeg`
+- **También disponible en**: `/app/index.html` (copia original)
 
 ---
 
