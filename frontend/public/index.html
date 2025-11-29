@@ -178,15 +178,16 @@
         }
         
         /* Carousel - Fixed to show full cards without clipping on hover */
-        .carousel-container {
+        .carousel-wrapper {
             position: relative;
-            overflow: visible;
             padding: 20px 0;
             margin: -20px 0;
         }
         
-        .carousel-container > div {
+        .carousel-container {
+            position: relative;
             overflow: hidden;
+            width: 100%;
         }
         
         .carousel-track {
