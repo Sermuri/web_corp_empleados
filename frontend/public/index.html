@@ -944,103 +944,121 @@
         </div>
     </section>
 
-    <!-- Business Model Section -->
-    <section id="casos" class="py-20 px-6 bg-slate-50">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Claridad Total: <span class="text-cyan-600">Sin Costos Ocultos</span>
+    <!-- Business Model Section - REDESIGNED: More Tech & Compact -->
+    <section id="casos" class="py-20 px-6 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+        <!-- Tech Grid Background -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(6, 182, 212, 0.1) 40px, rgba(6, 182, 212, 0.1) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(6, 182, 212, 0.1) 40px, rgba(6, 182, 212, 0.1) 41px);"></div>
+        </div>
+        
+        <div class="container mx-auto max-w-5xl relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Modelo de <span class="text-cyan-400">Contratación Transparente</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Modelo de contratación transparente. Como contratar un empleado, pero digital, autónomo y escalable.
+                <p class="text-lg text-gray-300">
+                    Como contratar un empleado, pero digital, autónomo y escalable.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Setup Fee -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all">
-                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full mb-6 mx-auto">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Setup Fee</h3>
-                    <p class="text-cyan-600 text-center font-semibold text-lg mb-6">Pago Único por Implementación</p>
+            <!-- Compact Timeline/Comparison Design -->
+            <div class="pricing-tech-container bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/30 shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-8 items-stretch">
                     
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Diseño de arquitectura agéntica personalizada</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Integración con APIs y sistemas existentes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Configuración de flujos de trabajo (n8n)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Training inicial del agente con Deep Learning</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Pruebas y ajustes antes del go-live</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200 text-center">
-                        <p class="text-sm text-gray-600">
-                            <i class="fas fa-info-circle text-blue-500 mr-2"></i>
-                            Inversión basada en complejidad del proyecto
-                        </p>
+                    <!-- Setup Fee - Left -->
+                    <div class="pricing-card-tech relative">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-500 rounded-l-lg"></div>
+                        <div class="pl-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-rocket text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Setup Fee</h3>
+                                    <p class="text-cyan-400 text-sm font-semibold">Pago Único</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Arquitectura agéntica personalizada</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Integración APIs & sistemas</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Training Deep Learning</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-cyan-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Testing & go-live</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-900/30 rounded-lg p-3 border border-blue-500/30">
+                                <p class="text-xs text-gray-300 text-center">
+                                    <i class="fas fa-info-circle text-blue-400 mr-1"></i>
+                                    Según complejidad del proyecto
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- Salario Digital - Right -->
+                    <div class="pricing-card-tech relative">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-red-500 rounded-l-lg"></div>
+                        <div class="pl-6">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-sync-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Salario Digital</h3>
+                                    <p class="text-orange-400 text-sm font-semibold">Mensualidad (MRR)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-orange-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Monitoreo 24/7</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-orange-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Servidores cloud & cómputo</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-orange-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Tokens IA incluidos</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-gray-300 text-sm">
+                                    <i class="fas fa-check-circle text-orange-400 mt-0.5 flex-shrink-0"></i>
+                                    <span>Actualizaciones continuas</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-900/30 rounded-lg p-3 border border-orange-500/30">
+                                <p class="text-xs text-gray-300 text-center">
+                                    <i class="fas fa-shield-alt text-orange-400 mr-1"></i>
+                                    Todo incluido, sin sorpresas
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 
-                <!-- Monthly Salary -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200 hover:border-orange-400 transition-all">
-                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full mb-6 mx-auto">
-                        <i class="fas fa-sync-alt text-white text-2xl"></i>
+                <!-- Bottom Trust Badge -->
+                <div class="mt-8 pt-6 border-t border-cyan-500/30 text-center">
+                    <div class="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-6 py-3 rounded-full border border-cyan-400/50">
+                        <i class="fas fa-award text-cyan-400 text-xl"></i>
+                        <span class="text-white font-semibold">Transparencia Garantizada</span>
+                        <span class="text-cyan-400">•</span>
+                        <span class="text-gray-300 text-sm">Presupuesto claro desde el inicio</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Salario Digital</h3>
-                    <p class="text-orange-600 text-center font-semibold text-lg mb-6">Mensualidad Recurrente (MRR)</p>
-                    
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Mantenimiento y monitoreo 24/7</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Servidores cloud y cómputo incluidos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Tokens de IA y consumo de APIs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Mejoras continuas y actualizaciones</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Soporte técnico prioritario</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="bg-orange-50 rounded-lg p-4 border border-orange-200 text-center">
-                        <p class="text-sm text-gray-600">
-                            <i class="fas fa-shield-alt text-orange-500 mr-2"></i>
-                            Todo incluido. Sin sorpresas ni costos ocultos
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Trust Badge -->
-            <div class="mt-12 text-center">
-                <div class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full shadow-xl">
-                    <i class="fas fa-award mr-3 text-2xl"></i>
-                    <span class="text-lg font-semibold">Transparencia Garantizada - Presupuesto Claro desde el Inicio</span>
                 </div>
             </div>
         </div>
