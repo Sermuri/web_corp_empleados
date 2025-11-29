@@ -72,53 +72,58 @@
             color: #06b6d4;
         }
         
-        /* NEW: Agent Card Styles - More Tech Aesthetic with Animated Border */
+        /* NEW: Agent Card Styles - More Tech Aesthetic with Rotating Light Border */
         .agent-card-tech {
             transition: all 0.3s ease;
             background: white;
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
             position: relative;
-            border: 2px solid transparent;
+            border: 2px solid #e5e7eb;
         }
         
-        .agent-card-tech::before {
+        /* Rotating light effect on hover */
+        .agent-card-tech::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: -2px;
             border-radius: 16px;
             padding: 2px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
+            background: conic-gradient(
+                from var(--angle),
+                transparent 0deg 270deg,
+                #06b6d4 270deg 360deg
+            );
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
             transition: opacity 0.3s ease;
-            background-size: 200% 200%;
-            animation: gradient-rotate 3s ease infinite;
+            animation: rotate-border 2s linear infinite;
+            pointer-events: none;
         }
         
-        .agent-card-tech:hover::before {
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+        
+        .agent-card-tech:hover::after {
             opacity: 1;
         }
         
         .agent-card-tech:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3), 0 0 30px rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
         }
         
-        @keyframes gradient-rotate {
+        @keyframes rotate-border {
             0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
+                --angle: 0deg;
             }
             100% {
-                background-position: 0% 50%;
+                --angle: 360deg;
             }
         }
         
