@@ -160,6 +160,34 @@
                 flex: 0 0 calc(100% - 24px);
             }
         }
+        
+        /* Infinite Logo Carousel Animation */
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .logos-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .logos-track {
+            animation: scroll-logos 40s linear infinite;
+            width: max-content;
+        }
+        
+        .logos-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .logo-item {
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-900">
