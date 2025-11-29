@@ -1224,10 +1224,14 @@
         
         function updateCarousel() {
             const track = document.getElementById('carouselTrack');
-            const itemWidth = track.children[0].offsetWidth;
-            const gap = 24; // gap between items
-            const offset = -(currentSlide * (itemWidth + gap));
-            track.style.transform = `translateX(${offset}px)`;
+            if (!track || !track.children[0]) return;
+            
+            const firstItem = track.children[0];
+            const itemWidth = firstItem.offsetWidth;
+            const gap = 24; // gap between items in CSS
+            const moveDistance = (itemWidth + gap) * currentSlide;
+            
+            track.style.transform = `translateX(-${moveDistance}px)`;
             
             updateDots();
         }
