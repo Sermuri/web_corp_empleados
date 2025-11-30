@@ -240,6 +240,38 @@
         .logo-item {
             flex-shrink: 0;
         }
+        
+        /* Infinite Testimonials Carousel Animation */
+        @keyframes scroll-testimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .testimonials-carousel-wrapper {
+            position: relative;
+        }
+        
+        .testimonials-track {
+            animation: scroll-testimonials 60s linear infinite;
+            width: max-content;
+        }
+        
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-900">
