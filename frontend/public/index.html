@@ -2129,6 +2129,64 @@
         // Infinite carousel - No manual control needed
         // Animation is handled by CSS @keyframes scroll-agents
         
+        // Live Demo Form Handler
+        const demoForm = document.getElementById('demoForm');
+        const demoButton = document.getElementById('demoButton');
+        const statusMessage = document.getElementById('statusMessage');
+        
+        if (demoForm) {
+            demoForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const countryCode = document.getElementById('countryCode').value;
+                const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                
+                // Validate phone number
+                if (!phoneNumber) {
+                    statusMessage.innerHTML = '<i class="fas fa-exclamation-circle mr-2 text-red-400"></i><span class="text-red-400">Por favor ingresa tu número de WhatsApp</span>';
+                    return;
+                }
+                
+                // Combine country code and phone number
+                const phone = countryCode + phoneNumber;
+                
+                // Disable button and show loading
+                demoButton.disabled = true;
+                const originalButtonText = demoButton.innerHTML;
+                demoButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span class="ml-2">Enviando...</span>';
+                statusMessage.innerHTML = '<i class="fas fa-spinner fa-spin mr-2 text-cyan-400"></i><span class="text-cyan-400">Procesando tu solicitud...</span>';
+                
+                try {
+                    // Send POST request to webhook
+                    const response = await fetch('https://n8n-n8n.ldirn9.easypanel.host/webhook-test/3821d143-ff26-4e2c-9f1a-9e5fbddd3336', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ phone: phone })
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        statusMessage.innerHTML = '<i class="fas fa-check-circle mr-2 text-green-400"></i><span class="text-green-400">¡Perfecto! Nuestro agente te contactará en WhatsApp en breve.</span>';
+                        demoForm.reset();
+                    } else {
+                        // Error response
+                        statusMessage.innerHTML = '<i class="fas fa-exclamation-triangle mr-2 text-orange-400"></i><span class="text-orange-400">Hubo un problema. Por favor intenta nuevamente.</span>';
+                    }
+                } catch (error) {
+                    // Network error
+                    console.error('Error:', error);
+                    statusMessage.innerHTML = '<i class="fas fa-exclamation-triangle mr-2 text-red-400"></i><span class="text-red-400">Error de conexión. Por favor verifica tu internet e intenta nuevamente.</span>';
+                }
+                
+                // Re-enable button
+                demoButton.disabled = false;
+                demoButton.innerHTML = originalButtonText;
+            });
+        }
+        
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
