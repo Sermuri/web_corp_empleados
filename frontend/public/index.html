@@ -2342,9 +2342,10 @@
             observer.observe(section);
         });
         
-        // Initialize Aurora on load
+        // Initialize Aurora and Flickering Grid on load
         window.addEventListener('load', () => {
             initAurora();
+            initFlickeringGrid();
         });
 
         // Aurora WebGL Effect
