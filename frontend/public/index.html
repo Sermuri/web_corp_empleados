@@ -2105,72 +2105,127 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contacto" class="bg-slate-900 text-gray-300 py-12 px-6">
-        <div class="container mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <!-- Brand -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <img src="logoBlancoGrande_Inteliautomake.png" alt="Inteliautomake Logo" class="h-10">
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        La evolución agéntica de tu negocio. Empleados Digitales autónomos que transforman operaciones complejas en flujos inteligentes.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/sergio-murillo-automatizaciones-make-zapier-inteliautomake/" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all">
-                            <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
-                        <a href="https://twitter.com/SERMURI75" target="_blank" class="w-10 h-10 bg-cyan-500 hover:bg-cyan-600 rounded-full flex items-center justify-center transition-all">
-                            <i class="fab fa-twitter text-white"></i>
-                        </a>
-                        <a href="https://wa.me/5492234254491" target="_blank" class="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-full flex items-center justify-center transition-all">
-                            <i class="fab fa-whatsapp text-white"></i>
-                        </a>
-                    </div>
-                </div>
+    <!-- Footer with Flickering Grid -->
+    <footer id="contacto" class="w-full pb-0 relative bg-slate-900">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between p-10 relative z-10">
+            <!-- Brand Section -->
+            <div class="flex flex-col items-start justify-start gap-y-5 max-w-xs mx-0">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="logoBlancoChico-Inteliautomake.png" alt="Inteliautomake Logo" class="h-10">
+                </a>
+                <p class="tracking-tight text-gray-400 font-medium text-sm">
+                    La evolución agéntica de tu negocio. Empleados Digitales autónomos que transforman operaciones complejas en flujos inteligentes.
+                </p>
                 
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Enlaces Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#empleados" class="hover:text-cyan-400 transition-all">Empleados Digitales</a></li>
-                        <li><a href="#casos" class="hover:text-cyan-400 transition-all">Modelo de Negocio</a></li>
-                        <li><a href="#autoridad" class="hover:text-cyan-400 transition-all">Sobre Nosotros</a></li>
-                        <li><a href="#demo" class="hover:text-cyan-400 transition-all">Demo en Vivo</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Contacto</h4>
-                    <ul class="space-y-2">
-                        <li>
-                            <i class="fas fa-envelope text-cyan-400 mr-2"></i>
-                            <a href="mailto:info@inteliautomake.com" class="hover:text-cyan-400 transition-all">info@inteliautomake.com</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone text-cyan-400 mr-2"></i>
-                            <a href="tel:+5492234540465" class="hover:text-cyan-400 transition-all">+54 9 223 454-0465</a>
-                        </li>
-                        <li>
-                            <i class="fab fa-twitter text-cyan-400 mr-2"></i>
-                            <a href="https://twitter.com/SERMURI75" target="_blank" class="hover:text-cyan-400 transition-all">@SERMURI75</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt text-cyan-400 mr-2"></i>
-                            <span>Buenos Aires, Argentina</span>
-                        </li>
-                    </ul>
+                <!-- Social Links -->
+                <div class="flex space-x-3">
+                    <a href="https://www.linkedin.com/in/sergio-murillo-automatizaciones-make-zapier-inteliautomake/" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-linkedin-in text-white"></i>
+                    </a>
+                    <a href="https://twitter.com/SERMURI75" target="_blank" class="w-10 h-10 bg-cyan-500 hover:bg-cyan-600 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-twitter text-white"></i>
+                    </a>
+                    <a href="https://wa.me/5492234254491" target="_blank" class="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-whatsapp text-white"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400">
-                    &copy; 2025 Inteliautomake. Todos los derechos reservados. | 
-                    <span class="text-cyan-400 font-semibold">La evolución agéntica de tu negocio</span>
-                </p>
+            <!-- Links Columns -->
+            <div class="pt-5 md:w-1/2">
+                <div class="flex flex-col items-start justify-start md:flex-row md:items-start md:justify-between gap-y-5 lg:pl-10">
+                    <!-- Column 1: Enlaces Rápidos -->
+                    <ul class="flex flex-col gap-y-2">
+                        <li class="mb-2 text-sm font-semibold text-white">Enlaces Rápidos</li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#empleados">Empleados Digitales</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#casos">Modelo de Negocio</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#autoridad">Sobre Nosotros</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#demo">Demo en Vivo</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Column 2: Recursos -->
+                    <ul class="flex flex-col gap-y-2">
+                        <li class="mb-2 text-sm font-semibold text-white">Recursos</li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#casos">Casos de Éxito</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#autoridad">Testimonios</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="#demo">Solicitar Demo</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Column 3: Contacto -->
+                    <ul class="flex flex-col gap-y-2">
+                        <li class="mb-2 text-sm font-semibold text-white">Contacto</li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="mailto:info@inteliautomake.com">Email</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="tel:+5492234540465">Teléfono</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                        <li class="footer-link-item group inline-flex cursor-pointer items-center justify-start gap-1 text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+                            <a href="https://twitter.com/SERMURI75" target="_blank">Twitter</a>
+                            <div class="footer-chevron flex h-4 w-4 items-center justify-center border border-gray-600 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+        
+        <!-- Flickering Grid Background -->
+        <div class="w-full h-48 md:h-64 relative mt-16 z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-slate-900 z-10" style="background: linear-gradient(to top, transparent 0%, rgba(15, 23, 42, 0.6) 40%, rgb(15, 23, 42) 100%);"></div>
+            <div class="absolute inset-0 mx-6">
+                <canvas id="footerFlickeringGrid" class="w-full h-full"></canvas>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="relative z-10 border-t border-gray-700 py-6 text-center bg-slate-900">
+            <p class="text-gray-400 text-sm">
+                &copy; 2025 Inteliautomake. Todos los derechos reservados. | 
+                <span class="text-cyan-400 font-semibold">La evolución agéntica de tu negocio</span>
+            </p>
         </div>
     </footer>
 
