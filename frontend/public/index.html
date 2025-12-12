@@ -134,6 +134,27 @@
             color: #06b6d4;
         }
         
+        /* Menu Dropdown Styles */
+        .menu-item:hover .menu-dropdown {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+        }
+        
+        .menu-dropdown {
+            z-index: 100;
+        }
+        
         /* NEW: Agent Card Styles - More Tech Aesthetic with Orange Rotating Light Border */
         .agent-card-tech {
             transition: all 0.3s ease;
