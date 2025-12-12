@@ -2655,8 +2655,8 @@
                             // This pixel is part of the text
                             textPixels.push(pixel);
                         } else {
-                            // Background pixel (random sparse pixels)
-                            if (Math.random() < 0.15) {
+                            // Background pixel (very sparse - only 5%)
+                            if (Math.random() < 0.05) {
                                 backgroundPixels.push(pixel);
                             }
                         }
