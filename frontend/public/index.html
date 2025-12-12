@@ -2598,14 +2598,16 @@
             animate();
         }
 
-        // Flickering Grid Animation for Footer
+        // Flickering Grid Animation for Footer with Text
         function initFlickeringGrid() {
             const canvas = document.getElementById('footerFlickeringGrid');
             if (!canvas) return;
 
             const ctx = canvas.getContext('2d');
-            let width, height, squareSize, cols, rows;
-            let flickers = [];
+            let width, height, pixelSize;
+            let textPixels = [];
+            let backgroundPixels = [];
+            const text = 'TRANSFORMACIÓN DIGITAL • IA AGÉNTICA';
 
             // Resize handler
             function resize() {
@@ -2615,22 +2617,49 @@
                 canvas.width = width;
                 canvas.height = height;
 
-                // Grid configuration - Small pixel size for dense pixelated effect
-                squareSize = 4;
-                cols = Math.ceil(width / squareSize);
-                rows = Math.ceil(height / squareSize);
-
-                // Initialize flickers
-                flickers = [];
-                for (let i = 0; i < cols; i++) {
-                    for (let j = 0; j < rows; j++) {
-                        flickers.push({
-                            col: i,
-                            row: j,
-                            opacity: Math.random() * 0.5,
-                            targetOpacity: Math.random() * 0.5,
-                            speed: 0.01 + Math.random() * 0.02
-                        });
+                pixelSize = 4;
+                
+                // Clear and prepare for text rendering
+                ctx.fillStyle = 'rgba(15, 23, 42, 1)';
+                ctx.fillRect(0, 0, width, height);
+                
+                // Draw text to extract pixel positions
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 60px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, width / 2, height / 2);
+                
+                // Get image data to find text pixels
+                const imageData = ctx.getImageData(0, 0, width, height);
+                const data = imageData.data;
+                
+                textPixels = [];
+                backgroundPixels = [];
+                
+                // Sample pixels in grid pattern
+                for (let y = 0; y < height; y += pixelSize) {
+                    for (let x = 0; x < width; x += pixelSize) {
+                        const index = (y * width + x) * 4;
+                        const alpha = data[index + 3];
+                        
+                        const pixel = {
+                            x: x,
+                            y: y,
+                            opacity: Math.random() * 0.3,
+                            targetOpacity: Math.random() * 0.3,
+                            speed: 0.008 + Math.random() * 0.015
+                        };
+                        
+                        if (alpha > 128) {
+                            // This pixel is part of the text
+                            textPixels.push(pixel);
+                        } else {
+                            // Background pixel (random sparse pixels)
+                            if (Math.random() < 0.15) {
+                                backgroundPixels.push(pixel);
+                            }
+                        }
                     }
                 }
             }
@@ -2641,34 +2670,49 @@
             // Animation loop
             function animate() {
                 // Clear canvas with dark background
-                ctx.fillStyle = 'rgba(15, 23, 42, 1)'; // slate-900
+                ctx.fillStyle = 'rgba(15, 23, 42, 1)';
                 ctx.fillRect(0, 0, width, height);
 
-                // Draw pixelated dots with flickering effect
-                flickers.forEach((flicker) => {
-                    const x = flicker.col * squareSize;
-                    const y = flicker.row * squareSize;
-
-                    // Update opacity towards target
-                    if (Math.abs(flicker.opacity - flicker.targetOpacity) < 0.01) {
-                        flicker.targetOpacity = Math.random() * 0.6;
+                // Draw background pixels (sparse, subtle)
+                backgroundPixels.forEach((pixel) => {
+                    // Update opacity
+                    if (Math.abs(pixel.opacity - pixel.targetOpacity) < 0.01) {
+                        pixel.targetOpacity = Math.random() * 0.3;
                     }
-                    if (flicker.opacity < flicker.targetOpacity) {
-                        flicker.opacity += flicker.speed;
+                    if (pixel.opacity < pixel.targetOpacity) {
+                        pixel.opacity += pixel.speed;
                     } else {
-                        flicker.opacity -= flicker.speed;
+                        pixel.opacity -= pixel.speed;
                     }
 
-                    // Draw pixel dot with flickering effect
-                    if (flicker.opacity > 0.1) {
-                        ctx.fillStyle = `rgba(148, 163, 184, ${flicker.opacity})`; // slate-400 with varying opacity
-                        ctx.fillRect(x, y, squareSize - 1, squareSize - 1);
+                    if (pixel.opacity > 0.05) {
+                        ctx.fillStyle = `rgba(100, 116, 139, ${pixel.opacity})`;
+                        ctx.fillRect(pixel.x, pixel.y, pixelSize - 1, pixelSize - 1);
+                    }
+                });
+
+                // Draw text pixels (more prominent, flickering)
+                textPixels.forEach((pixel) => {
+                    // Update opacity
+                    if (Math.abs(pixel.opacity - pixel.targetOpacity) < 0.01) {
+                        pixel.targetOpacity = 0.4 + Math.random() * 0.5;
+                    }
+                    if (pixel.opacity < pixel.targetOpacity) {
+                        pixel.opacity += pixel.speed;
+                    } else {
+                        pixel.opacity -= pixel.speed;
                     }
 
-                    // Occasional bright pixel flicker
-                    if (Math.random() < 0.0005) {
-                        ctx.fillStyle = `rgba(56, 189, 248, ${Math.min(flicker.opacity * 1.5, 0.8)})`; // sky-400 with higher opacity
-                        ctx.fillRect(x, y, squareSize - 1, squareSize - 1);
+                    // Draw text pixel
+                    if (pixel.opacity > 0.1) {
+                        ctx.fillStyle = `rgba(148, 163, 184, ${pixel.opacity})`;
+                        ctx.fillRect(pixel.x, pixel.y, pixelSize - 1, pixelSize - 1);
+                    }
+
+                    // Occasional bright flicker on text
+                    if (Math.random() < 0.0008) {
+                        ctx.fillStyle = `rgba(56, 189, 248, ${Math.min(pixel.opacity * 1.3, 0.9)})`;
+                        ctx.fillRect(pixel.x, pixel.y, pixelSize - 1, pixelSize - 1);
                     }
                 });
 
