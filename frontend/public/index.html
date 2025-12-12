@@ -161,6 +161,30 @@
             transform: translateX(4px);
         }
         
+        /* Footer Text Pattern Background */
+        .footer-text-pattern {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 64px;
+            font-weight: 700;
+            color: #64748b;
+            filter: blur(4px);
+            animation: slide-text 30s linear infinite;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            transform: rotate(-5deg);
+            opacity: 0.6;
+        }
+        
+        @keyframes slide-text {
+            from {
+                transform: translateX(0) rotate(-5deg);
+            }
+            to {
+                transform: translateX(-50%) rotate(-5deg);
+            }
+        }
+        
         /* NEW: Agent Card Styles - More Tech Aesthetic with Orange Rotating Light Border */
         .agent-card-tech {
             transition: all 0.3s ease;
