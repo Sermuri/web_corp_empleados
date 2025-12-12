@@ -165,23 +165,24 @@
         .footer-text-pattern {
             position: absolute;
             white-space: nowrap;
-            font-size: 64px;
-            font-weight: 700;
-            color: #64748b;
-            filter: blur(4px);
-            animation: slide-text 30s linear infinite;
-            letter-spacing: 0.1em;
-            line-height: 1.8;
-            transform: rotate(-5deg);
-            opacity: 0.6;
+            font-size: 80px;
+            font-weight: 900;
+            color: #475569;
+            filter: blur(2px);
+            animation: slide-text 40s linear infinite;
+            letter-spacing: 0.15em;
+            line-height: 1;
+            transform: rotate(-3deg);
+            opacity: 0.8;
+            text-shadow: 0 0 20px rgba(71, 85, 105, 0.5);
         }
         
         @keyframes slide-text {
             from {
-                transform: translateX(0) rotate(-5deg);
+                transform: translateX(0) rotate(-3deg);
             }
             to {
-                transform: translateX(-50%) rotate(-5deg);
+                transform: translateX(-50%) rotate(-3deg);
             }
         }
         
