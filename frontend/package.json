@@ -6,7 +6,14 @@
     "start": "python3 -m http.server 3000 --directory public",
     "dev": "python3 -m http.server 3000 --directory public"
   },
-  "keywords": ["inteliautomake", "ia-agentica", "landing-page"],
+  "keywords": [
+    "inteliautomake",
+    "ia-agentica",
+    "landing-page"
+  ],
   "author": "Inteliautomake",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ogl": "^1.0.11"
+  }
 }
