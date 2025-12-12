@@ -2396,12 +2396,18 @@
                 ] : [0, 0, 0];
             }
 
-            // Aurora parameters - Enhanced visibility
-            const colorStops = ["#3A29FF", "#FF94B4", "#FF3232"];
-            const colorStopsRgb = colorStops.flatMap(hexToRgb);
-            const amplitude = 1.5;  // Increased for more wave
-            const blend = 0.8;      // Increased for better visibility
-            const speed = 0.5;
+            // Aurora parameters - Custom RGB colors
+            // Color 1: RGB(43, 92, 75) - Verde azulado
+            // Color 2: RGB(227, 98, 28) - Naranja
+            // Color 3: RGB(41, 219, 255) - Cyan brillante
+            const colorStopsRgb = [
+                43/255, 92/255, 75/255,      // Color 1
+                227/255, 98/255, 28/255,     // Color 2
+                41/255, 219/255, 255/255     // Color 3
+            ];
+            const amplitude = 1.5;
+            const blend = 0.5;
+            const speed = 1.4;
 
             // Set uniforms
             gl.uniform1f(uAmplitudeLocation, amplitude);
