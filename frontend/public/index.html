@@ -2673,11 +2673,11 @@
                 ctx.fillStyle = 'rgba(15, 23, 42, 1)';
                 ctx.fillRect(0, 0, width, height);
 
-                // Draw background pixels (sparse, subtle)
+                // Draw background pixels (very sparse, very subtle)
                 backgroundPixels.forEach((pixel) => {
                     // Update opacity
                     if (Math.abs(pixel.opacity - pixel.targetOpacity) < 0.01) {
-                        pixel.targetOpacity = Math.random() * 0.3;
+                        pixel.targetOpacity = Math.random() * 0.15; // Much lower opacity
                     }
                     if (pixel.opacity < pixel.targetOpacity) {
                         pixel.opacity += pixel.speed;
@@ -2685,8 +2685,8 @@
                         pixel.opacity -= pixel.speed;
                     }
 
-                    if (pixel.opacity > 0.05) {
-                        ctx.fillStyle = `rgba(100, 116, 139, ${pixel.opacity})`;
+                    if (pixel.opacity > 0.03) {
+                        ctx.fillStyle = `rgba(71, 85, 105, ${pixel.opacity})`; // slate-600 - darker
                         ctx.fillRect(pixel.x, pixel.y, pixelSize - 1, pixelSize - 1);
                     }
                 });
