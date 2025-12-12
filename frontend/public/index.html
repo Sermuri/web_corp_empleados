@@ -2663,14 +2663,14 @@
                 ctx.fillStyle = 'rgba(15, 23, 42, 1)'; // slate-900
                 ctx.fillRect(0, 0, width, height);
 
-                // Draw grid lines and flickers
+                // Draw pixelated dots with flickering effect
                 flickers.forEach((flicker) => {
                     const x = flicker.col * squareSize;
                     const y = flicker.row * squareSize;
 
                     // Update opacity towards target
                     if (Math.abs(flicker.opacity - flicker.targetOpacity) < 0.01) {
-                        flicker.targetOpacity = Math.random() * 0.5;
+                        flicker.targetOpacity = Math.random() * 0.6;
                     }
                     if (flicker.opacity < flicker.targetOpacity) {
                         flicker.opacity += flicker.speed;
@@ -2678,15 +2678,16 @@
                         flicker.opacity -= flicker.speed;
                     }
 
-                    // Draw grid square with flickering effect
-                    ctx.strokeStyle = `rgba(100, 116, 139, ${flicker.opacity})`; // slate-500 with varying opacity
-                    ctx.lineWidth = 0.5;
-                    ctx.strokeRect(x, y, squareSize, squareSize);
+                    // Draw pixel dot with flickering effect
+                    if (flicker.opacity > 0.1) {
+                        ctx.fillStyle = `rgba(148, 163, 184, ${flicker.opacity})`; // slate-400 with varying opacity
+                        ctx.fillRect(x, y, squareSize - 1, squareSize - 1);
+                    }
 
-                    // Occasional bright flicker
-                    if (Math.random() < 0.001) {
-                        ctx.fillStyle = `rgba(34, 211, 238, ${flicker.opacity * 0.3})`; // cyan-400 with low opacity
-                        ctx.fillRect(x + 1, y + 1, squareSize - 2, squareSize - 2);
+                    // Occasional bright pixel flicker
+                    if (Math.random() < 0.0005) {
+                        ctx.fillStyle = `rgba(56, 189, 248, ${Math.min(flicker.opacity * 1.5, 0.8)})`; // sky-400 with higher opacity
+                        ctx.fillRect(x, y, squareSize - 1, squareSize - 1);
                     }
                 });
 
