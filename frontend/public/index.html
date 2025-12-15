@@ -65,6 +65,18 @@
             }
         }
         
+        /* Gradient Dots Animation */
+        @keyframes gradient-dots-move {
+            from {
+                background-position: 0px 0px, 5px 8.66px, 800% 400%, 1000% -400%, -1200% -600%, 400% 17.32px;
+                filter: hue-rotate(0deg);
+            }
+            to {
+                background-position: 0px 0px, 5px 8.66px, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+                filter: hue-rotate(360deg);
+            }
+        }
+        
         /* Gradient Background */
         .gradient-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #0c1e4a 100%);
