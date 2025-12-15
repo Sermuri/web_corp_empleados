@@ -2174,35 +2174,33 @@
         </div>
     </section>
 
-    <!-- CTA Aurora Hero Section - Just before Footer -->
-    <section class="relative flex flex-col h-screen items-center justify-center bg-zinc-900 text-slate-50 transition-all overflow-hidden">
-        <!-- Aurora Background Effect -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -inset-[10px] opacity-50 will-change-transform pointer-events-none blur-[10px]"
-                 style="
-                    --white-gradient: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
-                    --dark-gradient: repeating-linear-gradient(100deg, #000 0%, #000 7%, transparent 10%, transparent 12%, #000 16%);
-                    --aurora: repeating-linear-gradient(100deg, #3b82f6 10%, #818cf8 15%, #93c5fd 20%, #ddd6fe 25%, #60a5fa 30%);
-                    background-image: var(--dark-gradient), var(--aurora);
-                    background-size: 300%, 200%;
-                    background-position: 50% 50%, 50% 50%;
-                    filter: blur(10px);
-                    animation: aurora 60s linear infinite;
-                 ">
-            </div>
-            <div class="absolute -inset-[10px] opacity-50 will-change-transform pointer-events-none"
-                 style="
-                    --white-gradient: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
-                    --dark-gradient: repeating-linear-gradient(100deg, #000 0%, #000 7%, transparent 10%, transparent 12%, #000 16%);
-                    --aurora: repeating-linear-gradient(100deg, #3b82f6 10%, #818cf8 15%, #93c5fd 20%, #ddd6fe 25%, #60a5fa 30%);
-                    background-image: var(--dark-gradient), var(--aurora);
-                    background-size: 200%, 100%;
-                    background-position: 50% 50%, 50% 50%;
-                    background-attachment: fixed;
-                    mix-blend-mode: difference;
-                    animation: aurora 60s linear infinite;
-                 ">
-            </div>
+    <!-- CTA Hero Section with Gradient Dots - Just before Footer -->
+    <section class="relative flex flex-col h-screen items-center justify-center overflow-hidden">
+        <!-- Gradient Dots Background -->
+        <div class="absolute inset-0" 
+             style="
+                background-color: rgb(9 9 11);
+                background-image: 
+                    radial-gradient(circle at 50% 50%, transparent 1.5px, rgb(9 9 11) 0 8px, transparent 8px),
+                    radial-gradient(circle at 50% 50%, transparent 1.5px, rgb(9 9 11) 0 8px, transparent 8px),
+                    radial-gradient(circle at 50% 50%, #f00, transparent 60%),
+                    radial-gradient(circle at 50% 50%, #ff0, transparent 60%),
+                    radial-gradient(circle at 50% 50%, #0f0, transparent 60%),
+                    radial-gradient(ellipse at 50% 50%, #00f, transparent 60%);
+                background-size: 
+                    10px 17.32px,
+                    10px 17.32px,
+                    200% 200%,
+                    200% 200%,
+                    200% 200%,
+                    200% 17.32px;
+                background-position: 
+                    0px 0px, 5px 8.66px,
+                    0% 0%,
+                    0% 0%,
+                    0% 0px;
+                animation: gradient-dots-move 30s linear infinite;
+             ">
         </div>
         
         <!-- Content -->
