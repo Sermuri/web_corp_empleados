@@ -2474,20 +2474,7 @@
         
         // Aurora removed - using Gradient Dots CSS instead
 
-        // Aurora WebGL Effect
-        function initAurora() {
-            const canvas = document.getElementById('auroraCanvas');
-            if (!canvas) return;
-
-            const gl = canvas.getContext('webgl2', { 
-                alpha: true, 
-                premultipliedAlpha: true,
-                antialias: true 
-            });
-            
-            if (!gl) {
-                console.error('WebGL 2 not supported');
-                return;
+        // Aurora WebGL Effect - REMOVED (using CSS Gradient Dots instead)
             }
 
             gl.clearColor(0, 0, 0, 0);
