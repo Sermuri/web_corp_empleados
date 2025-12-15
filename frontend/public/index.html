@@ -498,9 +498,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="heroSection" class="pt-32 pb-20 px-6 relative overflow-hidden" style="background: linear-gradient(180deg, #050811 0%, #0f1729 50%, #1a2642 100%);">
-        <!-- Aurora Background Canvas -->
-        <canvas id="auroraCanvas" class="absolute inset-0 w-full h-full" style="z-index: 0; mix-blend-mode: screen;"></canvas>
+    <section id="heroSection" class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <!-- Gradient Dots Background -->
+        <div class="absolute inset-0" 
+             style="
+                background-color: rgb(9 9 11);
+                background-image: 
+                    radial-gradient(circle at 50% 50%, transparent 1.5px, rgb(9 9 11) 0 8px, transparent 8px),
+                    radial-gradient(circle at 50% 50%, transparent 1.5px, rgb(9 9 11) 0 8px, transparent 8px),
+                    radial-gradient(circle at 50% 50%, #f00, transparent 60%),
+                    radial-gradient(circle at 50% 50%, #ff0, transparent 60%),
+                    radial-gradient(circle at 50% 50%, #0f0, transparent 60%),
+                    radial-gradient(ellipse at 50% 50%, #00f, transparent 60%);
+                background-size: 
+                    10px 17.32px,
+                    10px 17.32px,
+                    200% 200%,
+                    200% 200%,
+                    200% 200%,
+                    200% 17.32px;
+                background-position: 
+                    0px 0px, 5px 8.66px,
+                    0% 0%,
+                    0% 0%,
+                    0% 0px;
+                animation: gradient-dots-move 30s linear infinite;
+                z-index: 0;
+             ">
+        </div>
         
         <div class="container mx-auto relative z-10">
             <div class="max-w-5xl mx-auto text-center fade-in">
