@@ -2449,29 +2449,20 @@
         function startsWithCountryCode(value) {
             // Clean the value first
             const cleanValue = value.replace(/[\s\-]/g, '');
-            // Common country code patterns (with or without +)
-            const countryCodePatterns = [
-                /^\+?\d{1,4}$/, // Just the code
-                /^\+?54/, // Argentina
-                /^\+?52/, // Mexico
-                /^\+?34/, // Spain
-                /^\+?57/, // Colombia
-                /^\+?56/, // Chile
-                /^\+?51/, // Peru
-                /^\+?58/, // Venezuela
-                /^\+?593/, // Ecuador
-                /^\+?1/, // USA/Canada
-                /^\+?55/, // Brazil
-                /^\+?44/, // UK
-                /^\+?49/, // Germany
-                /^\+?33/, // France
-                /^\+?39/, // Italy
-                /^\+?351/, // Portugal
-            ];
             
             // Check if starts with + or 00 (international prefix)
             if (cleanValue.startsWith('+') || cleanValue.startsWith('00')) {
                 return true;
+            }
+            
+            // Get currently selected country code (without +)
+            const countryCodeSelect = document.getElementById('countryCode');
+            if (countryCodeSelect) {
+                const selectedCode = countryCodeSelect.value.replace('+', '');
+                // Check if input starts with the selected country code
+                if (cleanValue.startsWith(selectedCode) && cleanValue.length > selectedCode.length + 4) {
+                    return true;
+                }
             }
             
             return false;
