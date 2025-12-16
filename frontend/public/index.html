@@ -188,28 +188,32 @@
         }
         
         /* Glow Menu Styles */
-        .glow-menu:hover .glow-menu-radial {
-            opacity: 1;
-        }
-        
-        .glow-menu-item:hover .glow-item-bg {
-            opacity: 1;
-            transform: scale(2);
+        .glow-menu-item .menu-link {
+            position: relative;
+            display: block;
         }
         
         .glow-item-bg {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .glow-menu-item a {
-            position: relative;
-            display: flex;
-            align-items: center;
+        /* Hover effect - show glow only on hover */
+        .glow-menu-item .menu-link:hover .glow-item-bg {
+            opacity: 1;
         }
         
-        .glow-menu-item:hover i {
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
+        /* Active state - keep glow when clicked */
+        .glow-menu-item .menu-link.active .glow-item-bg {
+            opacity: 1;
+        }
+        
+        /* Text color changes */
+        .glow-menu-item .menu-link:hover {
+            color: white;
+        }
+        
+        .glow-menu-item .menu-link.active {
+            color: white;
         }
         
         /* NEW: Agent Card Styles - More Tech Aesthetic with Orange Rotating Light Border */
