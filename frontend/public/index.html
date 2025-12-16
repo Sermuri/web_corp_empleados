@@ -44,7 +44,14 @@
         }
         
         .fade-in {
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Already animated - no more entrance animation */
+        .fade-in.animated {
+            animation: none;
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .animate-fade-in {
@@ -2656,7 +2663,7 @@
             });
         });
         
-        // Fade-in animation on scroll
+        // Fade-in animation on scroll (runs only ONCE per element)
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -2665,7 +2672,14 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    // Only animate if not already animated
+                    if (!entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('fade-in');
+                        // Mark as animated after animation completes (prevents re-triggering)
+                        setTimeout(() => {
+                            entry.target.classList.add('animated');
+                        }, 800); // Match animation duration
+                    }
                 }
             });
         }, observerOptions);
@@ -2673,6 +2687,13 @@
         // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+        });
+        
+        // Also mark elements that already have fade-in class as animated after first run
+        document.querySelectorAll('.fade-in').forEach(el => {
+            setTimeout(() => {
+                el.classList.add('animated');
+            }, 800);
         });
         
         // Aurora removed - using Gradient Dots CSS instead
