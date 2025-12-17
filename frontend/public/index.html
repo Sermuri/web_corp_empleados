@@ -2193,6 +2193,101 @@
         // Infinite carousel - No manual control needed
         // Animation is handled by CSS @keyframes scroll-agents
         
+        // ============================================
+        // AGENT CARD HOVER EFFECTS
+        // ============================================
+        
+        // Typing effect for agent descriptions
+        function typeText(element, text, speed = 20) {
+            let index = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                } else {
+                    // Remove cursor after typing is complete
+                    const cursor = element.parentElement.querySelector('.typing-cursor');
+                    if (cursor) cursor.style.opacity = '0';
+                }
+            }
+            
+            // Add cursor
+            let cursor = element.parentElement.querySelector('.typing-cursor');
+            if (!cursor) {
+                cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                element.parentElement.appendChild(cursor);
+            }
+            cursor.style.opacity = '1';
+            
+            type();
+        }
+        
+        // Populate integration tags
+        function populateIntegrations(container, integrations) {
+            container.innerHTML = '';
+            const tags = integrations.split(',');
+            tags.forEach((tag, index) => {
+                const span = document.createElement('span');
+                span.className = 'integration-tag';
+                span.textContent = tag.trim();
+                span.style.animationDelay = `${index * 0.05}s`;
+                container.appendChild(span);
+            });
+        }
+        
+        // Initialize agent cards
+        document.querySelectorAll('.agent-card-tech').forEach(card => {
+            const description = card.dataset.description;
+            const integrations = card.dataset.integrations;
+            const typingText = card.querySelector('.typing-text');
+            const integrationTags = card.querySelector('.integration-tags');
+            
+            let typingTimeout = null;
+            let isHovering = false;
+            
+            card.addEventListener('mouseenter', () => {
+                isHovering = true;
+                
+                // Populate integrations immediately
+                if (integrations && integrationTags) {
+                    populateIntegrations(integrationTags, integrations);
+                }
+                
+                // Start typing effect with a small delay
+                if (description && typingText) {
+                    typingText.innerHTML = '';
+                    typingTimeout = setTimeout(() => {
+                        if (isHovering) {
+                            typeText(typingText, description, 15);
+                        }
+                    }, 200);
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                isHovering = false;
+                
+                // Clear any pending typing
+                if (typingTimeout) {
+                    clearTimeout(typingTimeout);
+                }
+                
+                // Reset the typing text
+                if (typingText) {
+                    typingText.innerHTML = '';
+                }
+                
+                // Clear integrations
+                if (integrationTags) {
+                    integrationTags.innerHTML = '';
+                }
+            });
+        });
+        
         // Live Demo Form Handler
         const demoForm = document.getElementById('demoForm');
         const demoButton = document.getElementById('demoButton');
