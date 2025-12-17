@@ -390,20 +390,24 @@
         
         /* LLM-style chat box */
         .llm-response-box {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            border-radius: 12px;
-            padding: 14px 16px;
-            margin-bottom: 14px;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
             flex: 1;
             overflow: hidden;
+            max-height: 120px;
         }
         
         .llm-response-box .typing-text {
             color: #e2e8f0;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            min-height: 60px;
+            font-size: 0.8rem;
+            line-height: 1.45;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
         }
         
         .llm-response-box .typing-cursor {
