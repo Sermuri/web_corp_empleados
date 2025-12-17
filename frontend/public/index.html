@@ -238,14 +238,14 @@
         
         /* NEW: Agent Card Styles - More Tech Aesthetic with Orange Rotating Light Border */
         .agent-card-tech {
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.75);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 245, 0.85) 100%);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
-            overflow: visible;
+            overflow: hidden;
             position: relative;
-            border: 2px solid #e5e7eb;
+            border: 2px solid rgba(200, 200, 210, 0.5);
         }
         
         /* Rotating orange light effect on hover */
@@ -258,15 +258,15 @@
             background: conic-gradient(
                 from var(--angle),
                 transparent 0deg 250deg,
-                #f97316 250deg 290deg,
-                #ea580c 290deg 330deg,
+                #06b6d4 250deg 290deg,
+                #0891b2 290deg 330deg,
                 transparent 330deg 360deg
             );
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
             animation: rotate-border 2s linear infinite;
             pointer-events: none;
             z-index: 1;
@@ -283,10 +283,10 @@
         }
         
         .agent-card-tech:hover {
-            background: #f9fafb;
-            border-color: #f97316;
-            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.25);
-            transform: scale(1.05);
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 50%, #1a1a2e 100%);
+            border-color: #06b6d4;
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.35), 0 0 60px rgba(6, 182, 212, 0.15);
+            transform: scale(1.08);
             z-index: 10;
         }
         
@@ -303,14 +303,173 @@
             }
         }
         
-        /* Problem section with left border */
+        /* Agent card content states */
+        .agent-card-tech .card-default {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .agent-card-tech .card-default .agent-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        
+        .agent-card-tech .card-default .agent-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #06b6d4;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .agent-card-tech .card-hover {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        
+        .agent-card-tech:hover .card-default {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        .agent-card-tech:hover .card-hover {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .agent-card-tech:hover .card-hover .agent-name {
+            color: #ffffff;
+        }
+        
+        .agent-card-tech:hover .card-hover .agent-role {
+            color: #22d3ee;
+        }
+        
+        /* Hover state header */
+        .card-hover .hover-header {
+            text-align: center;
+            margin-bottom: 16px;
+            animation: slideDown 0.4s ease forwards;
+        }
+        
+        .card-hover .hover-header .agent-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .card-hover .hover-header .agent-role {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #22d3ee;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* LLM-style chat box */
+        .llm-response-box {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .llm-response-box .typing-text {
+            color: #e2e8f0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            min-height: 60px;
+        }
+        
+        .llm-response-box .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background: #22d3ee;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+            vertical-align: text-bottom;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Integrations section */
+        .integrations-section {
+            margin-top: auto;
+        }
+        
+        .integrations-section .integrations-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        
+        .integrations-section .integration-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .integration-tag {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(34, 211, 238, 0.15) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #22d3ee;
+            white-space: nowrap;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        
+        .integration-tag:hover {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.4) 0%, rgba(34, 211, 238, 0.3) 100%);
+            border-color: #22d3ee;
+            transform: scale(1.05);
+        }
+        
+        /* Problem section with left border (kept for backwards compatibility) */
         .problem-section {
             border-left: 4px solid #a855f7;
             padding-left: 16px;
             margin-left: 4px;
         }
         
-        /* Feature tags */
+        /* Feature tags (kept for backwards compatibility) */
         .feature-tag {
             background: #f3f4f6;
             border: 1px solid #e5e7eb;
