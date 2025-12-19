@@ -2875,7 +2875,7 @@
         // CONTACT MODAL HANDLER
         // ============================================
         
-        (function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('contactModal');
             const closeBtn = document.getElementById('modalCloseBtn');
             const form = document.getElementById('contactForm');
@@ -2884,6 +2884,11 @@
             const submitBtn = document.getElementById('contactSubmitBtn');
             const captchaCheckbox = document.getElementById('captchaCheckbox');
             const captchaError = document.getElementById('captchaError');
+            
+            if (!modal || !closeBtn || !form) {
+                console.log('Modal elements not found');
+                return;
+            }
             
             let captchaVerified = false;
             
