@@ -671,43 +671,36 @@
             visibility: visible;
         }
         
-        /* Modal Container */
+        /* Modal Container Wrapper for glow effect */
         .contact-modal {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 32px;
+            position: relative;
             max-width: 500px;
             width: 90%;
-            max-height: 90vh;
-            overflow: hidden;
-            position: relative;
             transform: scale(0.9) translateY(20px);
             transition: all 0.3s ease;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            box-sizing: border-box;
+            padding: 3px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
+            background-size: 300% 300%;
+            animation: gradient-border 4s ease infinite;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);
         }
         
         .contact-modal-overlay.active .contact-modal {
             transform: scale(1) translateY(0);
         }
         
-        /* Glowing border effect */
-        .contact-modal::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 22px;
-            padding: 2px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
-            background-size: 300% 300%;
-            animation: gradient-border 4s ease infinite;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            z-index: -1;
+        /* Inner modal content */
+        .contact-modal-inner {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            max-height: calc(90vh - 6px);
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
         }
         
         @keyframes gradient-border {
