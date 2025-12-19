@@ -681,12 +681,13 @@
             max-width: 500px;
             width: 90%;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow: hidden;
             position: relative;
             transform: scale(0.9) translateY(20px);
             transition: all 0.3s ease;
             border: 2px solid transparent;
             background-clip: padding-box;
+            box-sizing: border-box;
         }
         
         .contact-modal-overlay.active .contact-modal {
@@ -3080,7 +3081,7 @@
                     };
                     
                     // Send to webhook
-                    const response = await fetch('https://n8n-n8n.ldirn9.easypanel.host/webhook/4fddc8ce-7e53-4a32-80c7-9ba9c8d5c066', {
+                    const response = await fetch('https://n8n-n8n.ldirn9.easypanel.host/webhook-test/4fddc8ce-7e53-4a32-80c7-9ba9c8d5c066', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
