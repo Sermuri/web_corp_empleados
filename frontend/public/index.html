@@ -645,6 +645,298 @@
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
+        
+        /* ============================================
+           CONTACT MODAL STYLES
+           ============================================ */
+        
+        /* Modal Overlay */
+        .contact-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Modal Container */
+        .contact-modal {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .contact-modal-overlay.active .contact-modal {
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Glowing border effect */
+        .contact-modal::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            padding: 2px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
+            background-size: 300% 300%;
+            animation: gradient-border 4s ease infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+        }
+        
+        @keyframes gradient-border {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Close button */
+        .modal-close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #94a3b8;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+        
+        /* Form inputs */
+        .modal-input-group {
+            margin-bottom: 16px;
+        }
+        
+        .modal-input-group label {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        
+        .modal-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(100, 116, 139, 0.3);
+            border-radius: 10px;
+            color: #f1f5f9;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .modal-input:focus {
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.15);
+        }
+        
+        .modal-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+        
+        .modal-input::placeholder {
+            color: #64748b;
+        }
+        
+        /* Phone input group */
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .phone-input-group select {
+            width: 110px;
+            flex-shrink: 0;
+        }
+        
+        .phone-input-group input {
+            flex: 1;
+        }
+        
+        /* Error message */
+        .input-error-msg {
+            color: #f87171;
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+        }
+        
+        .modal-input-group.has-error .input-error-msg {
+            display: block;
+        }
+        
+        /* Captcha */
+        .captcha-container {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .captcha-challenge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .captcha-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #64748b;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+        
+        .captcha-checkbox.verified {
+            background: #10b981;
+            border-color: #10b981;
+        }
+        
+        .captcha-checkbox.verified::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+        
+        .captcha-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Submit button */
+        .modal-submit-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .modal-submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+        }
+        
+        .modal-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Privacy notice */
+        .privacy-notice {
+            margin-top: 16px;
+            padding: 12px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            border-left: 3px solid #06b6d4;
+        }
+        
+        .privacy-notice p {
+            color: #64748b;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .privacy-notice i {
+            color: #06b6d4;
+            margin-right: 6px;
+        }
+        
+        /* Success message */
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .success-message .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: pulse-success 2s ease-in-out infinite;
+        }
+        
+        .success-message .success-icon i {
+            font-size: 36px;
+            color: white;
+        }
+        
+        @keyframes pulse-success {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(16, 185, 129, 0.2); }
+        }
+        
+        .success-message h3 {
+            color: #f1f5f9;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .success-message p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-900">
