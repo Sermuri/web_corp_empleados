@@ -3124,6 +3124,12 @@
                 <p class="text-gray-400 text-sm mb-6 text-center">Completa el formulario y nos pondremos en contacto contigo</p>
                 
                 <form id="contactForm" novalidate>
+                    <!-- Empresa (Opcional) -->
+                    <div class="modal-input-group">
+                        <label for="contactEmpresa">Empresa <span class="text-gray-500 text-xs font-normal">(opcional)</span></label>
+                        <input type="text" id="contactEmpresa" name="empresa" class="modal-input" placeholder="Nombre de tu empresa" maxlength="100">
+                    </div>
+                    
                     <!-- Row: Nombre y Apellido -->
                     <div class="grid grid-cols-2 gap-4">
                         <div class="modal-input-group">
