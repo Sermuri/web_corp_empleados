@@ -3065,7 +3065,9 @@
                 
                 try {
                     // Prepare data
+                    const empresa = sanitizeInput(document.getElementById('contactEmpresa').value);
                     const formData = {
+                        empresa: empresa || '',
                         nombre: normalizeName(nombre),
                         apellido: normalizeName(apellido),
                         email: email,
