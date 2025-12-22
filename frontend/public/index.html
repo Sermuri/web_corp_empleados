@@ -3072,12 +3072,12 @@
                         timestamp: new Date().toISOString()
                     };
                     
-                    // Send to webhook using no-cors mode for cross-origin requests
-                    const response = await fetch('https://n8n-n8n.ldirn9.easypanel.host/webhook-test/4fddc8ce-7e53-4a32-80c7-9ba9c8d5c066', {
+                    // Send to webhook - using text/plain which is allowed with no-cors
+                    await fetch('https://server-n8n.inteliautomake.com/webhook-test/4fddc8ce-7e53-4a32-80c7-9ba9c8d5c066', {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: {
-                            'Content-Type': 'application/json',
+                            'Content-Type': 'text/plain',
                         },
                         body: JSON.stringify(formData)
                     });
